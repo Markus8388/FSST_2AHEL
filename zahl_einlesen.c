@@ -4,21 +4,30 @@ int main()
 {
     const int REFERENZZAHL = 50;
     int eingelesene_zahl;
-    printf("Bitte gib eine Zahl ein: ");
-    scanf("%d", &eingelesene_zahl);
-    if (eingelesene_zahl < REFERENZZAHL)
+    int richtig = 0;
+    for (int i = 0; ((i < 10)&&(richtig == 0)); i++)
     {
-        printf("Die eingegeben Zahl %d, ist kleiner als die Referenzzahl %d", eingelesene_zahl, REFERENZZAHL);
-    }
+        printf("Bitte gebe eine Zahl ein: ");
+        scanf("%d", &eingelesene_zahl);
+        if (eingelesene_zahl < REFERENZZAHL)
+        {
+            printf("Die eingegeben Zahl %d, ist kleiner als die Referenzzahl. Du hast noch %d Versuche.\n", eingelesene_zahl, 10 - i - 1);
+        }
 
-    else if (eingelesene_zahl > REFERENZZAHL)
-    {
-        printf("Die eingegeben Zahl %d, ist groesser als die Referenzzahl %d", eingelesene_zahl, REFERENZZAHL);
-    }
+        else if (eingelesene_zahl > REFERENZZAHL)
+        {
+            printf("Die eingegeben Zahl %d, ist groesser als die Referenzzahl. Du hast noch %d Versuche.\n", eingelesene_zahl, 10 - i - 1);
+        }
 
-    else
+        else
+        {
+            printf("Du hast die Referenzzahl erraten.");
+            richtig = 1;
+        }
+    }
+    if (richtig == 0)
     {
-        printf("Die eingegeben Zahl %d, ist gleich wie die Referenzzahl %d", eingelesene_zahl, REFERENZZAHL);
+        printf("Tut mir leid du hast die Zahl nicht erraten! Die Zahl war %d", REFERENZZAHL);
     }
     return 0;
 }
