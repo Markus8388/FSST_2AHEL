@@ -6,7 +6,7 @@ int main()
 {
     srand(time(NULL));
     const int max_zahl = 100;
-    const int REFERENZZAHL = (rand() % max_zahl);
+    const int referenzzahl = (rand() % max_zahl);
     int eingelesene_zahl;
     int richtig = 0;
     int versuche = 10;
@@ -15,12 +15,12 @@ int main()
     {
         printf("Bitte gebe eine Zahl ein: ");
         scanf("%d", &eingelesene_zahl);
-        if (eingelesene_zahl < REFERENZZAHL)
+        if (eingelesene_zahl < referenzzahl)
         {
             printf("Die gesuchte Zahl ist groesser. Du hast noch %d Versuche.\n", versuche - i - 1);
         }
 
-        else if (eingelesene_zahl > REFERENZZAHL)
+        else if (eingelesene_zahl > referenzzahl)
         {
             printf("Die gesuchte Zahl ist kleiner. Du hast noch %d Versuche.\n", versuche - i - 1);
         }
@@ -33,7 +33,7 @@ int main()
     }
     if (richtig == 0)
     {
-        printf("Tut mir leid du hast die Zahl nicht erraten! Die Zahl war %d", REFERENZZAHL);
+        printf("Tut mir leid du hast die Zahl nicht erraten! Die Zahl war %d", referenzzahl);
     }
     return 0;
 }
