@@ -10,11 +10,18 @@ int main()
     int eingelesene_zahl;
     int richtig = 0;
     int versuche = 10;
-    printf("Herzlich wilkommen beim großen Zahlenraten.\nDie Zahl zwischen 0 und %d. \n", max_zahl);
-    for (int i = 0; ((i < versuche)&&(richtig == 0)); i++)
+
+    printf("Herzlich wilkommen beim grossen Zahlenraten.\nDie Zahl zwischen 0 und %d. \n", max_zahl);
+    for (int i = 0; ((i < versuche)&&(richtig == 0)); i++) 
     {
         printf("Bitte gebe eine Zahl ein: ");
         scanf("%d", &eingelesene_zahl);
+        
+        if (eingelesene_zahl == -1)
+        {
+            printf("Die geheime Zahl ist: %d\n", referenzzahl);
+        }
+
         if (eingelesene_zahl < referenzzahl)
         {
             printf("Die gesuchte Zahl ist groesser. Du hast noch %d Versuche.\n", versuche - i - 1);
@@ -25,15 +32,22 @@ int main()
             printf("Die gesuchte Zahl ist kleiner. Du hast noch %d Versuche.\n", versuche - i - 1);
         }
 
-        else
+        else if (eingelesene_zahl == referenzzahl)        
         {
             printf("Du hast die Referenzzahl erraten.");
             richtig = 1;
         }
+
+        else
+        {
+            printf("Dieser Fall sollte nicht existieren");
+        }
     }
+    
     if (richtig == 0)
     {
         printf("Tut mir leid du hast die Zahl nicht erraten! Die Zahl war %d", referenzzahl);
     }
+    
     return 0;
 }
