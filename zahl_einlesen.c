@@ -5,11 +5,12 @@
 int main()
 {
     srand(time(NULL));
-    const int max_zahl = 100;
+    int max_zahl = 100;
     const int referenzzahl = (rand() % max_zahl);
     int eingelesene_zahl;
     int richtig = 0;
     int versuche = max_zahl / 10 + 5;
+    int level =  1;
 
     printf("Herzlich wilkommen beim grossen Zahlenraten.\nDie Zahl zwischen 0 und %d. \n", max_zahl);
     for (int i = 0; ((i < versuche)&&(richtig == 0)); i++) 
