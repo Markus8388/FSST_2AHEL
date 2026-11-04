@@ -1,27 +1,40 @@
 #include <stdio.h>
 
+void manipuliere(int **ptr) {
+    // Böse Überraschung 1: Was wird hier verändert?
+    **ptr = 99;
+}
+
 int main() {
-    int array[] = {10, 20, 30, 40};
-    int *p = array;
+    // Ein 2D-Array (Matrix mit 2 Zeilen und 3 Spalten)
+    int matrix[2][3] = {
+        {1, 2, 3},
+        {4, 5, 6}
+    };
+
+    int *p1 = matrix[0]; // Zeigt auf das allererste Element (die 1)
+    int *p2 = matrix[1]; // Zeigt auf den Anfang der zweiten Zeile (die 4)
+
+    // Ausgabe A: Pointer-Verschiebung im 2D-Array
+    printf("A: %d\n", *(p1 + 4));
+
+    // Ausgabe B: Pointer-Subtraktion über Zeilen hinweg
+    printf("B: %ld\n", p2 - p1);
+
+    // Jetzt erstellen wir einen Pointer auf den Pointer p1
+    int **doppel_ptr = &p1;
     
-    // Ausgabe A: Post-Inkrement vs. Dereferenzierung
-    printf("A: %d\n", *p++);
-    
-    // Ausgabe B: Klammerung und Pointer-Verschiebung
-    printf("B: %d\n", (*p)++);
-    
-    // Ausgabe C: Der aktuelle Zustand des Arrays
-    printf("C: %d\n", array[1]);
-    
-    // Böse Überraschung: Pointer-Casting (Typ-Verwandlung)
-    // Wir verwandeln den int-Pointer in einen char-Pointer!
-    char *c_ptr = (char *)&array[2];
-    
-    // Ausgabe D: Pointer-Arithmetik auf verschiedenen Datentypen
-    // Was passiert, wenn wir zu einem char-Pointer +4 addieren?
-    int *final_ptr = (int *)(c_ptr + 4);
-    
-    printf("D: %d\n", *final_ptr);
-    
+    // Funktionsaufruf
+    manipuliere(doppel_ptr);
+
+    // Ausgabe C: Welcher Wert wurde durch die Funktion geändert?
+    printf("C: %d\n", matrix[0][0]);
+
+    // Böse Überraschung 2: Wir biegen den Doppel-Pointer um
+    *doppel_ptr = p2 + 2;
+
+    // Ausgabe D: Worauf zeigt p1 jetzt nach der Manipulation?
+    printf("D: %d\n", *p1);
+
     return 0;
 }
