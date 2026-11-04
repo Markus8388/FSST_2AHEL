@@ -1,32 +1,27 @@
 #include <stdio.h>
 
-void veraendere_array(int *ptr) {
-    *(ptr + 1) = 99;
-}
-
 int main() {
-    int liste[] = {10, 20, 30, 40};
+    int array[] = {10, 20, 30, 40};
+    int *p = array;
     
-    // Ausgabe A: Datentypgrößen (sizeof)
-    printf("A: %lu\n", sizeof(liste) / sizeof(liste[0]));
+    // Ausgabe A: Post-Inkrement vs. Dereferenzierung
+    printf("A: %d\n", *p++);
     
-    int *p1 = liste; // Pointer zeigt auf das erste Element
-    int *p2 = &liste[2];
+    // Ausgabe B: Klammerung und Pointer-Verschiebung
+    printf("B: %d\n", (*p)++);
     
-    // Ausgabe B: Pointer-Subtraktion
-    printf("B: %ld\n", p2 - p1);
+    // Ausgabe C: Der aktuelle Zustand des Arrays
+    printf("C: %d\n", array[1]);
     
-    // Funktion aufrufen
-    veraendere_array(liste);
+    // Böse Überraschung: Pointer-Casting (Typ-Verwandlung)
+    // Wir verwandeln den int-Pointer in einen char-Pointer!
+    char *c_ptr = (char *)&array[2];
     
-    // Ausgabe C: Wert nach Funktionsaufruf
-    printf("C: %d\n", liste[1]);
+    // Ausgabe D: Pointer-Arithmetik auf verschiedenen Datentypen
+    // Was passiert, wenn wir zu einem char-Pointer +4 addieren?
+    int *final_ptr = (int *)(c_ptr + 4);
     
-    // Pointer verschieben
-    p1 += 3;
-    
-    // Ausgabe D: Dereferenzierung nach Verschiebung
-    printf("D: %d\n", *p1);
+    printf("D: %d\n", *final_ptr);
     
     return 0;
 }
