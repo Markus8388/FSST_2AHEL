@@ -1,24 +1,27 @@
 #include <stdio.h>
 
-float berechne_kwh(float watt, float hour);
-void drucke_rechnung(float kwh);
+void einzahlen(float* kontostand, float betrag);
+int abheben(float* kontostand, float betrag);
 
 int main() {
-    float watt;
-    float hour;
-    printf("Bitte gib die benötigte Leistung in Watt ein: ");
-    scanf("%f", &watt);
-    printf("Bitte jetzt die Zeit: ");
-    scanf("%f", &hour);
-    float kwh = berechne_kwh(watt, hour);
-    drucke_rechnung(kwh);
+    float mein_konto = 100;
+    einzahlen(&mein_konto, 50);
+    abheben(&mein_konto, 120);
+    abheben(&mein_konto, 80);
     return 0;
 }
 
-float berechne_kwh(float watt, float hour) {
-   return watt*hour / 1000; 
+void einzahlen(float* kontostand, float betrag)  {
+    *kontostand += betrag;
 }
 
-void drucke_rechnung(float kwh) {
-    printf("Kosten: %.2f Euro\n", kwh * 0.3);
+int abheben(float* kontostand, float betrag) {
+    if (*kontostand >= betrag) {
+        *kontostand -= betrag;
+        printf("Abheben erfolgreich\n");
+        return 1;
+    } else {
+        printf("Zu wenig Geld am Konto\n");
+        return 0;
+    }
 }
