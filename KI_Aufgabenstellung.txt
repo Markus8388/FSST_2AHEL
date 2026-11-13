@@ -1,0 +1,40 @@
+Hallo! Schön, dass du Zeit für mein Anliegen hast. Ich leite einen kleinen Lauftreff in unserem Wohngebiet und wir organisieren bald einen gemeinsamen Volkslauf. Da ich selbst überhaupt keine Ahnung von Computern oder Programmierung habe, wende ich mich an dich.
+
+Hier ist mein Auftrag für dich:
+
+### 1. Ausgangssituation
+
+In unserem Lauftreff trainieren viele Anfänger, die oft Schwierigkeiten haben, einzuschätzen, wie schnell sie eigentlich unterwegs sind. Wenn jemand wissen möchte, welche durchschnittliche Geschwindigkeit (Pace) er oder sie für eine bestimmte Strecke gelaufen ist oder wie lange man für eine bestimmte Strecke bei einem bestimmten Tempo braucht, raten wir meistens nur herum. Das möchten wir gerne ändern.
+
+### 2. Dein Anliegen
+
+Ich brauche ein kleines Programm, das uns dabei hilft, entweder die benötigte Zeit für eine gegebene Strecke und Geschwindigkeit oder die durchschnittliche Geschwindigkeit zu berechnen. Da wir das Programm unkompliziert auf einem Computer im Vereinsheim nutzen wollen, sollte es direkt über die Befehlszeile bedienbar sein.
+
+### 3. Gewünschte Funktionen
+
+Das Programm soll dem Nutzer nach dem Start zwei Möglichkeiten zur Auswahl geben:
+
+1. Berechnung der **Benötigten Zeit**, wenn man die Strecke (in Kilometern) und das gewünschte Tempo (Minuten pro Kilometer) eingibt.
+2. Berechnung der **Durchschnittsgeschwindigkeit**, wenn man die gelaufene Strecke (in Kilometern) und die dafür gebrauchte Zeit (in Minuten) eingibt.
+
+Nachdem die Auswahl getroffen und die Werte eingegeben wurden, soll das jeweilige Ergebnis sauber ausgegeben werden.
+
+### 4. Bedienung
+
+* Der Benutzer soll das Programm starten und direkt im Startbildschirm zwischen den beiden Berechnungsarten wählen können (z. B. durch Eingabe einer Zahl wie 1 oder 2).
+* Danach soll das Programm nach den notwendigen Zahlenwerten fragen (z. B. Kilometer und Minuten).
+* Am Ende soll das Ergebnis klar und verständlich auf dem Bildschirm stehen.
+
+### 5. Beispiel
+
+Ein Läufer möchte wissen, wie lange er für eine Strecke von 5 Kilometern braucht, wenn er pro Kilometer durchschnittlich 6 Minuten einplant.
+
+* Der Benutzer wählt die entsprechende Option.
+* Er gibt die Strecke `5` und das Tempo `6` ein.
+* Das Programm rechnet das aus und zeigt an: "Du wirst voraussichtlich 30 Minuten brauchen."
+
+### 6. Besondere Wünsche
+
+Es wäre toll, wenn das Programm nach einer erfolgreichen Berechnung nicht sofort abstürzt oder sich schließt, sondern nach einer kleinen Eingabe beendet werden kann oder man einfach merkt, dass es fertig ist. Außerdem sollten natürlich keine krummen Abstürze passieren, wenn man mal aus Versehen etwas Falsches eingibt (aber mach es dir nicht zu kompliziert).
+
+Ich bin gespannt, wie du das umsetzt! Sag Bescheid, wenn du noch Fragen hast.
